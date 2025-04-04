@@ -1,4 +1,6 @@
 print("Hii")
+print("Hirrefrwgvi")
+
 import os
 s = os.path.basename(__file__)
 print(s)
