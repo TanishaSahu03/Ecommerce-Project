@@ -1,0 +1,70 @@
+{% extends "user_management/base_register.html" %}
+
+{% block content %}
+<div class="col-md-6">
+    <div class="card shadow-sm p-4">
+        <h2 class="text-center text-danger">{% block heading %}Register{% endblock %}</h2>
+        <hr>
+        
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <h5>Username</h5>
+                {{ form.username }}
+            </div>
+            
+            <div class="mb-3">
+                <h5>Email</h5>
+                {{ form.email }}
+            </div>
+
+            <div class="mb-3">
+                <h5>Store name</h5>
+                {{ form.store_name }}
+            </div>
+
+            <div class="mb-3">
+                <h5>bank account number</h5>
+                {{ form.bank_account_number }}
+            </div>           
+
+            <div class="mb-3">
+                <h5>Tax id</h5>
+                {{ form.tax_id }}
+            </div>
+
+            <div class="mb-3">
+                <h5>business license</h5>
+                {{ form.business_license }}
+            </div>
+
+            <div class="mb-3">
+                <h5>Password</h5>
+                {{ form.password1 }}
+            </div>
+
+            <div class="mb-3">
+                <h5>Confirm Password</h5>
+                {{ form.password2 }}
+            </div>
+
+            <hr>
+            <div class="text-center">
+                <button type="submit" class="btn btn-danger w-100">Register</button>
+            </div>
+            {{form.errors}}
+        </form>
+
+        <p class="text-center mt-3">Already have an account? 
+            <a href="{% url 'login' %}" class="text-decoration-none">Sign in</a>
+        </p>
+
+        <p class="text-center mt-3">Are you a User? 
+            <a href="{% url 'register' %}" class="text-decoration-none">Click here</a>
+            to register
+        </p>
+    </div>
+</div>
+
+{% endblock %}

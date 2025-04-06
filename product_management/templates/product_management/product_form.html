@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Add Product</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/style-register.css' %}">
+    </head>
+    <body class="bg-light d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4">
+                <h2 class="text-center text-danger">Add Product</h2>
+                <hr>
+    
+                <form method="POST"  enctype = "multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <h5>Product name</h5>
+                        {{ form.name }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h5>Product price</h5>
+                        {{ form.price }}
+                    </div>
+
+                    <div class="mb-3">
+                        <h5>Product description</h5>
+                        {{ form.description }}
+                    </div>
+
+                    <div class="mb-3">
+                        <h5>Product category</h5>
+                        {{ form.category }}
+                    </div>
+
+                    <div class="mb-3">
+                        <h5>Product stock</h5>
+                        {{ form.stock }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h5>Product Image</h5>
+                        {{ form.main_image }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Additional Images</label>
+                        <input type="file" name="product_images" multiple class="form-control">
+                        <small class="text-muted">You can upload multiple images.</small>
+                    </div>
+    
+                    <hr>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger w-100">Add</button>
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </body>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

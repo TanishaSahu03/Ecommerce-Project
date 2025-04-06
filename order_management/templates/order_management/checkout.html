@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .checkout-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .btn-primary {
+            background-color: #ff3f6c;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #e6325e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkout-container">
+            <h2>Total Amount: ${{ total_price|floatformat:2 }}</h2>
+            <form action="{% url 'create_checkout_session' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        var stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
+
+        document.getElementById("checkout-button").addEventListener("click", function () {
+            fetch("{% url 'create_checkout_session' %}", { method: "POST" })
+                .then(response => response.json())
+                .then(session => stripe.redirectToCheckout({ sessionId: session.id }));
+        });
+    </script>
+</body>
+</html>
