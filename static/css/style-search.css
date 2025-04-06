@@ -1,0 +1,43 @@
+/* Style for the search bar */
+.navbar .search-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar .search-bar-container form {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 25px;
+    padding: 5px 10px;
+    width: 50%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .search-bar-container input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 25px;
+}
+
+.navbar .search-bar-container button {
+    background: #ff4785;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.navbar .search-bar-container button:hover {
+    background: #e6366f;
+}

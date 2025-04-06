@@ -1,0 +1,41 @@
+/* General Styling */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Product Card Styling */
+.product-card {
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.product-card img {
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e60000;
+}
+
+/* Buttons */
+.btn{
+    color: #e60000;
+}
+.btn-primary {
+    background-color: #ff0066;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #cc0052;
+}
+.btn-outline-secondary:hover {
+    background-color: #666;
+    color: white;
+}
