@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    command: gunicorn ProjectWebsite.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      # Remove db service if you're using SQLite, since it's not required
+      - db
+  # Remove the db service since you're using SQLite
+# Volumes section can be omitted for SQLite
